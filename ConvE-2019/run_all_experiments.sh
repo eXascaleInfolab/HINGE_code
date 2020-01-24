@@ -1,0 +1,6 @@
+#!/bin/bash
+MKL_NUM_THREADS=1 OMP_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=0 /home/paolo/LiteralE_3/my_env_literale3/bin/python main.py --embedding-dim 100 --embedding-shape1 10 --hidden-size 4608 --data JF17K_version1_test_25_percent_pg_triplets_keyValue_keyLiteral_all_combinations_without_training_triplets_in_testing_file_with_ids > nohup_JF17K_version1_test_25_percent_pg_triplets_keyValue_keyLiteral_all_combinations_without_training_triplets_in_testing_file_with_ids.out
+MKL_NUM_THREADS=1 OMP_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=0 /home/paolo/LiteralE_3/my_env_literale3/bin/python main.py --embedding-dim 100 --embedding-shape1 10 --hidden-size 4608 --data JF17K_version1_test_25_percent_pg_triplets_keyValue_keyLiteral_one_combination_without_training_triplets_in_testing_file_with_ids > nohup_JF17K_version1_test_25_percent_pg_triplets_keyValue_keyLiteral_one_combination_without_training_triplets_in_testing_file_with_ids.out
+
+
+echo "\n\nEND BASH\n\n"
