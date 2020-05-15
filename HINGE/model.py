@@ -24,6 +24,12 @@ def create_role_value_pairs_btw_ht_and_kv(fact_m_rel, kv_m_rel, rep_time):
     return concat_pair_of_rows_final
 
 def truncated_normal_(tensor, mean=0, std=1):
+    size = tensor.shape
+    tmp = tensor.new_empty(size + (4,)).normal_()
+    valid = (tmp < 2) & (tmp > -2)
+    ind = valid.max(-1, keepdim=True)[1]
+    tensor.data.copy_(tmp.gather(-1, ind).squeeze(-1))
+    tensor.data.mul_(std).add_(mean)
 
 class HINGE5(torch.nn.Module):
 
@@ -90,7 +96,7 @@ class HINGE5(torch.nn.Module):
             for i in range(arity-3):
                 fact_hrt_concat3_tmp = torch.cat((fact_hrt_concat3_hrt, kv_roles_embedded[:,i+1,:].unsqueeze(1), kv_values_embedded[:,i+1,:].unsqueeze(1)), 1).unsqueeze(1)
                 fact_hrt_concat_vectors3_tmp = self.conv2(fact_hrt_concat3_tmp)
-                fact_hrt_concat_vectors3_tmp = self.batchNorm2(fact_hrt_concat_vectors3_tmp) 
+                fact_hrt_concat_vectors3_tmp = self.batchNorm2(fact_hrt_concat_vectors3_tmp)
                 fact_hrt_concat_vectors3_tmp = F.relu(fact_hrt_concat_vectors3_tmp).squeeze(3)
                 fact_hrt_concat_vectors3_tmp = fact_hrt_concat_vectors3_tmp.view(fact_hrt_concat_vectors3_tmp.size(0), -1).unsqueeze(2)
                 fact_hrt_concat_vectors1 = torch.cat((fact_hrt_concat_vectors1, fact_hrt_concat_vectors3_tmp), 2)
