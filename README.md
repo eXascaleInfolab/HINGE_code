@@ -11,7 +11,7 @@ python builddata.py --data_dir <PATH>/<DATASET>/
 python builddata.py --data_dir <PATH>/<DATASET>/ --if_permutate True --bin_postfix _permutate
 ```
 ###### Train and evaluate model (suggested parameters for both JF17k and Wiki dataset)
-check the script `run_all_experiments.sh`
+check the script `HINGE/run_all_experiments.sh`
 
 ###### Parameter setting:
 In `main_hinge.py`, you can set:
@@ -37,8 +37,11 @@ In `main_hinge.py`, you can set:
 ​
 # Python lib versions
 Python: 3.6.10
+
 torch: 1.4.0
+
 numpy: 1.18.1
+
 tensorflow-gpu: 2.2.0
 ​
 # Reference
@@ -63,22 +66,8 @@ We implemented a fast version of NaLP (Guan, Saiping, et al. "Link prediction on
 python builddata.py --data_dir <PATH>/<DATASET>/
 python builddata.py --data_dir <PATH>/<DATASET>/ --if_permutate True --bin_postfix _permutate
 ```
-###### Train and evaluate NaLP (suggested parameters for JF17k dataset)
-```
-python main_nary_pytorch.py --indir=<PATH>/JF17K_original/ --epochs=2000 --batchsize=128 --embsize=100 --learningrate=0.00005 --outdir=<PATH>/JF17K_original/ --load=False --gpu_ids=0,1,2,3 --ngfcn 1000 --new_negative_sampling_h_and_t False --num_negative_samples 1
-```
-###### Train and evaluate NaLP-fix (suggested parameters for JF17k dataset)
-```
-python main_nary_pytorch.py --indir=<PATH>/JF17K_original/ --epochs=2000 --batchsize=128 --embsize=100 --learningrate=0.00005 --outdir=<PATH>/JF17K_original/ --load=False --gpu_ids=0,1,2,3 --ngfcn 1000 --new_negative_sampling_h_and_t True --num_negative_samples 1
-```
-###### Train and evaluate NaLP (suggested parameters for Wiki dataset)
-```
-python main_nary_pytorch.py --indir=<PATH>/wikipeople_original/ --epochs=600 --batchsize=128 --embsize=100 --learningrate=0.00005 --outdir=<PATH>/wikipeople_original/ --load=False --gpu_ids=5,6,7,8 --ngfcn 1200 --new_negative_sampling_h_and_t False --num_negative_samples 1
-```
-###### Train and evaluate NaLP-fix (suggested parameters for Wiki dataset)
-```
-python main_nary_pytorch.py --indir=<PATH>/wikipeople_original/ --epochs=500 --batchsize=128 --embsize=100 --learningrate=0.00005 --outdir=<PATH>/wikipeople_original/ --load=False --gpu_ids=5,6,7,8 --ngfcn 1200 --new_negative_sampling_h_and_t True --num_negative_samples 1
-```
+###### Train and evaluate NaLP and NaLP-fix (suggested parameters for JF17k dataset)
+check the script `NALP/run_all_experiments.sh`
 
 
 # Reference
