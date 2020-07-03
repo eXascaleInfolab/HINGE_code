@@ -64,9 +64,10 @@ We implemented a fast version of NaLP (Guan, Saiping, et al. "Link prediction on
 ###### Data preprocessing
 ```
 python builddata.py --data_dir <PATH>/<DATASET>/
+
 python builddata.py --data_dir <PATH>/<DATASET>/ --if_permutate True --bin_postfix _permutate
 ```
-###### Train and evaluate NaLP and NaLP-fix (suggested parameters for JF17k dataset)
+###### Train and evaluate NaLP and NaLP-fix (suggested parameters for both JF17k and Wiki dataset)
 check the script `NALP/run_all_experiments.sh`
 
 
