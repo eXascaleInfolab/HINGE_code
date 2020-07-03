@@ -9,21 +9,28 @@ HINGE is a hyper-relational KG embedding model, which directly learns from hyper
 python builddata.py --data_dir <PATH>/<DATASET>/
 ```
 ###### Train and evaluate model (suggested parameters for both JF17k and Wiki dataset)
-```
-python main_hinge.py --indir=<PATH>/<DATASET>/ --epochs=1000 --batchsize=128 --embsize=100 --learningrate=0.0001 --outdir=<PATH>/<DATASET>/ --load=False --num_negative_samples 1  --gpu_ids=0,1,2,3 --num_filters=400
-```
+check the script `run_all_experiments.sh`
 
 ###### Parameter setting:
 In `main_hinge.py`, you can set:
 `--indir`: input file directory
+
 `--epochs`: number of training epochs (suggested: JF17k 600 epochs, Wiki X epochs)
+
 `--batchsize`: batch size of training set
+
 `--embsize`: embedding size
+
 `--learningrate`: learning rate
+
 `--outdir`: where to store HINGE model
+
 `--load`: load a pre-trained HINGE model and evaluate
+
 `--num_negative_samples`: number of negative samples
+
 `--gpu_ids`: gpu to be used for train and test the model
+
 `--num_filters`: number of filters used in the CNN
 ​
 # Python lib versions
