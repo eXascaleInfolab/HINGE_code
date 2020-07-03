@@ -7,6 +7,8 @@ HINGE is a hyper-relational KG embedding model, which directly learns from hyper
 ###### Data preprocessing
 ```
 python builddata.py --data_dir <PATH>/<DATASET>/
+
+python builddata.py --data_dir <PATH>/<DATASET>/ --if_permutate True --bin_postfix _permutate
 ```
 ###### Train and evaluate model (suggested parameters for both JF17k and Wiki dataset)
 check the script `run_all_experiments.sh`
