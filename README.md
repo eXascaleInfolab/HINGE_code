@@ -17,7 +17,7 @@ check the script `HINGE/run_all_experiments.sh`
 In `main_hinge.py`, you can set:
 `--indir`: input file directory
 
-`--epochs`: number of training epochs (suggested: JF17k 600 epochs, Wiki X epochs)
+`--epochs`: number of training epochs
 
 `--batchsize`: batch size of training set
 
